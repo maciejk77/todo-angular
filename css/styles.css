@@ -1,3 +1,8 @@
+body {
+    background-image: url("http://www.kateburtonblog.co.uk/wp-content/uploads/2012/01/Post-it-note-on-white-background1869.jpg");
+    background-repeat: no-repeat;
+}
+
 .done {
   text-decoration: 
   line-through; 
@@ -6,4 +11,17 @@
 
 .basic {
   list-style-type: none;
+  line-height: 2;
+  font-size: 2em;
+  position: fixed;
+  left: 40%;
+
+}
+
+#main-box {
+  position: fixed;
+  top: 25%;
+  left: 43%;
+  position: absolute;
+  right: 0px;
 }

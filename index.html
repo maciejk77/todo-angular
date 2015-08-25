@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>ToDoList App</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body>
-  <div ng-controller="todoController">
+<body background="css/todo.jpg">
+  <div id="main-box" ng-controller="todoController">
     <form name="frm" ng-submit="addTodo()">
       <input type="text" name="newtodo" ng-model="newTodo" required />
-      <button ng-disabled="frm.$invalid">Go</button>
+      <button type="button" class="btn btn-default" ng-disabled="frm.$invalid">Go</button>
     </form>
-    <button ng-click="clearCompleted()">Clear Completed</button>
+    <button type="button" class="btn-md btn-danger" ng-click="clearCompleted()">Clear Completed</button>
     <ul class="basic">
       <li ng-repeat="todo in todos">
         <input type="checkbox" ng-model="todo.done" />
