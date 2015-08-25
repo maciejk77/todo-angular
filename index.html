@@ -3,32 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>ToDoList App</title>
+  
+  <style>
+  .done{text-decoration: line-through; color: #ccc;}
+  .basic{list-style-type: none;}
+  </style>
+
 </head>
 <body>
   <div ng-controller="todoController">
     <form name="frm" ng-submit="addTodo()">
-      <input type="text" name="newtodo" ng-model="newtodo" required />
+      <input type="text" name="newtodo" ng-model="newTodo" required />
       <button ng-disabled="frm.$invalid">Go</button>
     </form>
     <button ng-click="clearCompleted()">Clear Completed</button>
-    <ul>
+    <ul class="basic">
       <li ng-repeat="todo in todos">
-        {{ todo.title }}
+        <input type="checkbox" ng-model="todo.done" />
+        <span ng-class="{'done':todo.done}">{{todo.title}}</span>
       </li>
     </ul>
   </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
 <script>
 
 angular.module('ToDo', []).
 controller('todoController', ['$scope', function($scope){
 
   $scope.todos = [
-    {'title': 'Build a todo app', 'done': 'false'}
+    {'title': 'Build a todo app', 'done': false}
   ];
 
-  $scope.addTodo = function(){}
+  $scope.addTodo = function(){
+    $scope.todos.push({'title': $scope.newTodo, 'done': false})
+
+  }
   $scope.clearCompleted = function(){}
 
 }])
