@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="ToDo">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDoList App</title>
+</head>
+<body>
+  <div bg-controller="todoController">
+    <form name="frm" ng-submit="addTodo()">
+      <input type="text" name="newtodo" ng-model="newtodo" required />
+      <button ng-disabled="frm.$invalid">Go</button>
+    </form>
+    <button ng-click="clearCompleted()">Clear Completed</button>
+  </div>
+  <ul>
+    <li ng-repeat="todo in todos">
+      {{ todo.title }}
+    </li>
+  </ul>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+
+angular.module('ToDo', []).
+controller('todoController', ['$scope', function($scope){
+
+  $scope.todos = [
+    {'title': 'Build a todo app', 'done': 'false'}
+  ];
+
+  $scope.addTodo = function(){}
+  $scope.clearCompleted = function(){}
+
+}])
+
+</script>
+</body>
+</html>
