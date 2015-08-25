@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ToDoList App</title>
-  
-  <style>
-  .done{text-decoration: line-through; color: #ccc;}
-  .basic{list-style-type: none;}
-  </style>
-
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
   <div ng-controller="todoController">
@@ -24,27 +19,7 @@
       </li>
     </ul>
   </div>
-
 <script src="bower_components/angular/angular.min.js"></script>
-<script>
-
-angular.module('ToDo', []).
-controller('todoController', ['$scope', function($scope){
-
-  $scope.todos = [];
-
-  $scope.addTodo = function(){
-    $scope.todos.push({'title': $scope.newTodo, 'done': false})
-    $scope.newTodo = ''
-  }
-  $scope.clearCompleted = function(){
-    $scope.todos = $scope.todos.filter(function(item){
-        return !item.done
-    })
-  }
-
-}])
-
-</script>
+<script type="text/javascript" src="js/todoapp.js"></script>
 </body>
 </html>

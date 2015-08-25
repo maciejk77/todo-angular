@@ -1,0 +1,9 @@
+.done {
+  text-decoration: 
+  line-through; 
+  color: #ccc;
+}
+
+.basic {
+  list-style-type: none;
+}
